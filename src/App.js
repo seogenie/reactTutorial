@@ -2,29 +2,32 @@ import React, { Component } from 'react';
 import './App.css';
 import Movie from './Movie'
 
-const movieTitles = [
-  "Matrix",
-  "22",
-  "33",
-  "44"
+const movies = [
+  {
+    title: "title1",
+    poster: "a.jpg"
+  },
+  {
+    title: "title2",
+    poster: "a2.jpg"
+  },
+  {
+    title: "title3",
+    poster: "a3.jpg"
+  },
+  {
+    title: "title4",
+    poster: "a4.jpg"
+  },
 ]
-
-const movieImages = [
-  "a.jpg",
-  "b.jpg",
-  "c.jpg",
-  "d.jpg"
-]
-
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-   <Movie title={movieTitles[0]} poster={movieImages[0]} />
-   <Movie title={movieTitles[1]} poster={movieImages[1]} />
-   <Movie title={movieTitles[2]} poster={movieImages[2]} />
-   <Movie title={movieTitles[3]} poster={movieImages[3]} />
+        {movies.map(movie => {
+          return <Movie title={movie.title} poster={movie.poster} />
+        })}
       </div>
     );
   }
