@@ -2,33 +2,32 @@ import React, { Component } from 'react';
 import './App.css';
 import Movie from './Movie'
 
-const movies = [
-  {
-    id: 1,
-    title: "title1",
-    poster: "a.jpg"
-  },
-  {
-    id: 2,
-    title: "title2",
-    poster: "a2.jpg"
-  },
-  {
-    id: 3,
-    title: "title3",
-    poster: "a3.jpg"
-  },
-  {
-    id: 4,
-    title: "title4",
-    poster: "a4.jpg"
-  },
-]
-
 class App extends Component {
   
   state = {
-    greeting: 'hello~!'
+    greeting: 'hello~!',
+    movies: [
+      {
+        id: 1,
+        title: "title1",
+        poster: "a.jpg"
+      },
+      {
+        id: 2,
+        title: "title2",
+        poster: "a2.jpg"
+      },
+      {
+        id: 3,
+        title: "title3",
+        poster: "a3.jpg"
+      },
+      {
+        id: 4,
+        title: "title4",
+        poster: "a4.jpg"
+      },
+    ]
   }
 
   componentWillMount(){
@@ -40,9 +39,17 @@ class App extends Component {
 
     setTimeout(()=> {
       this.setState({
-        greeting: 'again hello'
+        movies: [
+          
+          {
+            title: "add",
+            poster:"gh.jpg"
+          },
+
+          ...this.state.movies
+        ]
       })
-    }, 3000)
+    }, 2000)
 
   }
 
@@ -54,8 +61,7 @@ class App extends Component {
     console.log('(2)render by App')
     return (
       <div className="App">
-        {this.state.greeting}
-        {movies.map((movie, index) => {
+        {this.state.movies.map((movie, index) => {
           return <Movie title={movie.title} poster={movie.poster} key={index} />
         })}
       </div>
