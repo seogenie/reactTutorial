@@ -39,10 +39,10 @@ class App extends Component {
   }
 
   render() {
-    console.log('(2)render by App')
+    const { movies } = this.state;
     return (
-      <div className="App">
-        {this.state.movies ? this._renderMovies() : "로딩중....." }
+      <div className={movies ? "App" : "App--loading"}>
+        {movies ? this._renderMovies() : "로딩중....." }
       </div>
     );
   }
